@@ -5,7 +5,10 @@ on:
 jobs:
   env_demo_job:
     runs-on: ubuntu-latest
-    
+    concurrency:
+      group: concurrency-group
+      cancel-in-progress: true
+
     name: Concurrency Demo
     steps:
       - name: Echo Hello World

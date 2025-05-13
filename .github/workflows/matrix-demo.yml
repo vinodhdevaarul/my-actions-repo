@@ -1,0 +1,24 @@
+name: matrix-demo-workflow
+on:
+  push: 
+
+jobs:
+  env_demo_job:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: concurrency-group
+      cancel-in-progress: true
+
+    name: Matrix Demo
+    steps:
+      - name: Print Docker Info
+        run: 
+          docker info
+      
+      - name: Run Image
+        run:
+          docker run hello-world
+      
+      - name: Check Container
+        run:
+          docker container ls

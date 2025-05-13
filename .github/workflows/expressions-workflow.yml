@@ -5,7 +5,7 @@ on:
 jobs:
   env_demo_job:
     env:
-        MY_ENV_VAR: ${{ github.ref == 'refs/heads/main'  }}
+        MY_ENV_VAR: ${{ github.ref == 'feature/adding-a-new-feature'  }}
     runs-on: ubuntu-latest
     concurrency:
       group: concurrency-group

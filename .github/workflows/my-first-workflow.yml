@@ -62,12 +62,17 @@ jobs:
             
             - name: test report
               run: echo "created test report"  > report.txt
-            
+
+            - name: print directory
+              run: |
+                echo "Printing Directory"
+                ls -ltra
+
             - name: Upload report.txt
               uses: actions/upload-artifact@v4
               with:
                 name: report-artifact
-                path: ~/report.txt
+                path: report.txt
     
     deploy_job:
         strategy:

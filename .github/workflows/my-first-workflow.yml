@@ -38,8 +38,8 @@ jobs:
             - name: Print the echo statements
               run: echo "hello world Build"
 
-            - name: sleep 30 seconds
-              run: sleep 30
+            - name: sleep 20 seconds
+              run: sleep 20
 
 
     test_job:
@@ -56,4 +56,7 @@ jobs:
 
             - name: Print the echo statements
               run: echo "hello world Test"
+            
+            - name: sleep 10 seconds
+              run: sleep 10
 

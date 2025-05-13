@@ -5,9 +5,9 @@ on:
 jobs:
   env_demo_job:
     runs-on: ubuntu-latest
-    env:
-      USERNAME: "myuser"
-      PASSWORD: "mysecretpassword"
+    # env:
+    #   USERNAME: "myuser"
+    #   PASSWORD: "mysecretpassword"
     
     name: Environment Demo
     steps:
@@ -17,8 +17,12 @@ jobs:
         #   PASSWORD: "mysecretpassword"
         run: |
           echo $USERNAME  
-          echo ${{ env.USERNAME }}
+          echo ${{ vars.USERNAME }}
       
       - name: print USERNAME again
         run: 
           echo $USERNAME
+      
+      - name: print PASSWORD 
+        run:
+          echo ${{ secrets.USERPASSWORD }}

@@ -21,4 +21,4 @@ jobs:
       
       - name: Check Container
         run:
-          docker container ls
+          docker container ls --all

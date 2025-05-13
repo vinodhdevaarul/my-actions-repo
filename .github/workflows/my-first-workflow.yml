@@ -90,11 +90,11 @@ jobs:
             - name: Print the echo statements
               run: echo "hello world Deploy"
             
-            - name: Print test report
-              run: cat report.txt
-            
             - uses: actions/download-artifact@v4
               name: download the report artifact  
               with:
                 name: report-artifact
+            
+            - name: Print test report
+              run: cat report.txt
 

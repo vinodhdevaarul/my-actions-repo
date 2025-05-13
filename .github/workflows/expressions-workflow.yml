@@ -3,7 +3,9 @@ on:
   push:
 
 jobs:
-  env_demo_job:
+  env_demo_job_1:
+    name: Environment Job 1 is executed
+    if: github.ref == 'refs/heads/main'
     env:
         MY_ENV_VAR: ${{ github.ref == 'feature/adding-a-new-feature'  }}
     runs-on: ubuntu-latest
@@ -11,7 +13,6 @@ jobs:
       group: concurrency-group
       cancel-in-progress: true
 
-    name: Expressions Demo
     steps:
       - name: Value of MY_ENV_VAR
         run: 
@@ -19,9 +20,32 @@ jobs:
           print ${{ github.ref }}
     
       - name: Run Step for main branch
-        if: github.ref == 'ref/heads/main'
+        if: github.ref == 'refs/heads/main'
         run:  echo "from main"
     
       - name: Run Step for not main branch
-        if: github.ref != 'ref/heads/main'
+        if: github.ref != 'refs/heads/main'
+        run:  echo "not main"
+  env_demo_job_2:
+    name: Environment Job 2 is executed
+    if: github.ref != 'refs/heads/main'
+    env:
+        MY_ENV_VAR: ${{ github.ref == 'feature/adding-a-new-feature'  }}
+    runs-on: ubuntu-latest
+    concurrency:
+      group: concurrency-group
+      cancel-in-progress: true
+
+    steps:
+      - name: Value of MY_ENV_VAR
+        run: 
+          echo "Value of MY_ENV_VAR is ${{ env.MY_ENV_VAR }}"
+          print ${{ github.ref }}
+    
+      - name: Run Step for main branch
+        if: github.ref == 'refs/heads/main'
+        run:  echo "from main"
+    
+      - name: Run Step for not main branch
+        if: github.ref != 'refs/heads/main'
         run:  echo "not main"

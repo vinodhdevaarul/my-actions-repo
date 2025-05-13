@@ -70,6 +70,7 @@ jobs:
 
         name: Deploy Job
         runs-on: ${{ matrix.os }}
+        needs: test_job
 
         steps:
             - name: Checkout the Source Code

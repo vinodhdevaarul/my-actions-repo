@@ -1,0 +1,23 @@
+name: workflow-filters
+on:
+  push:
+    branches: 
+        - "main"
+        - "!feature/*"
+
+jobs:
+  env_demo_job_1:
+    name: Environment Job 1 is executed
+    env:
+        MY_ENV_VAR: ${{ github.ref == 'feature/adding-a-new-feature'  }}
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Value of MY_ENV_VAR
+        run: 
+          echo "Value of MY_ENV_VAR is ${{ env.MY_ENV_VAR }}"
+          print ${{ github.ref }}
+    
+      - name: Run Step for main branch
+        run:  echo "from main"  

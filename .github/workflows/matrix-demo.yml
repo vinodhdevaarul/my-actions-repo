@@ -3,11 +3,31 @@ on:
   push: 
 
 jobs:
+  # env_demo_job:
+  #   runs-on: ubuntu-latest
+  #   concurrency:
+  #     group: concurrency-group
+  #     cancel-in-progress: true
+
+  #   name: Matrix Demo
+  #   steps:
+  #     - name: Print Docker Info
+  #       run: 
+  #         docker info
+      
+  #     - name: Run Image
+  #       run:
+  #         docker run hello-world
+      
+  #     - name: Check Container
+  #       run:
+  #         docker container ls --all
   env_demo_job:
-    runs-on: ubuntu-latest
-    concurrency:
-      group: concurrency-group
-      cancel-in-progress: true
+    strategy:
+     matrix:
+       os: [ubuntu-latest, ubuntu-18.04, ubuntu-20.04, windows-latest]
+       images: [hello-world, busybox, nginx]
+    runs-on: ${{ matrix.os }}
 
     name: Matrix Demo
     steps:
@@ -15,9 +35,9 @@ jobs:
         run: 
           docker info
       
-      - name: Run Image
+      - name: Running ${{ matrix.images }} on ${{ matrix.os }}
         run:
-          docker run hello-world
+          docker run ${{ matrix.images }}
       
       - name: Check Container
         run:

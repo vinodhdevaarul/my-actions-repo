@@ -26,12 +26,16 @@ jobs:
     strategy:
      matrix:
        os: [ubuntu-latest, windows-latest]
-       images: [hello-world, busybox, nginx]
+       images: [hello-world, busybox, alpine]
        exclude:
-         - images: nginx
+         - images: alpine
            os: windows-latest
          - images: busybox
            os: windows-latest
+       include:
+          - images: debian
+            os: ubuntu-latest
+            
     runs-on: ${{ matrix.os }}
     
 

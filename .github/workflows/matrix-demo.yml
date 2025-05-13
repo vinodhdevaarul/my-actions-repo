@@ -27,7 +27,11 @@ jobs:
      matrix:
        os: [ubuntu-latest, windows-latest]
        images: [hello-world, busybox, nginx]
+       exclude:
+         - images: nginx
+           os: windows-latest
     runs-on: ${{ matrix.os }}
+    
 
     name: Matrix Demo
     steps:

@@ -5,13 +5,16 @@ on:
 jobs:
   env_demo_job:
     runs-on: ubuntu-latest
+    env:
+      USERNAME: "myuser"
+      PASSWORD: "mysecretpassword"
     
     name: Environment Demo
     steps:
       - name: env variables
-        env:
-          USERNAME: "myuser"
-          PASSWORD: "mysecretpassword"
+        # env:
+        #   USERNAME: "myuser"
+        #   PASSWORD: "mysecretpassword"
         run: |
           echo $USERNAME  
           echo ${{ env.USERNAME }}

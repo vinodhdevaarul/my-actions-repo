@@ -1,0 +1,21 @@
+name: my-second-workflow
+on:
+  push
+
+jobs:
+  env_demo_job:
+    runs-on: ubuntu-latest
+    
+    name: Environment Demo
+    steps:
+      - name: env variables
+        env:
+          USERNAME: "myuser"
+          PASSWORD: "mysecretpassword"
+        run: |
+          echo $USERNAME  
+          echo ${{ env.USERNAME }}
+      
+      - name: print USERNAME again
+        run: 
+          echo $USERNAME

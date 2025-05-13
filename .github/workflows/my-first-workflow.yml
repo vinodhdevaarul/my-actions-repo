@@ -37,6 +37,11 @@ jobs:
 
             - name: Print the echo statements
               run: echo "hello world Build"
+
+            - name: sleep 30 seconds
+              run: sleep 30
+
+
     test_job:
         strategy:
             matrix:

@@ -16,7 +16,6 @@ jobs:
         #   USERNAME: "myuser"
         #   PASSWORD: "mysecretpassword"
         run: |
-          echo $USERNAME  
           echo ${{ vars.USERNAME }}
       
       - name: print USERNAME again

@@ -9,6 +9,9 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Checkout the Source Code
+              uses: actions/checkout@v4
+
             - name: Print the echo statements
               run: echo "hello world"
 

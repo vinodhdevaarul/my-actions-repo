@@ -1,10 +1,11 @@
 name: workflow-filters
 on:
   push:
-    branches: 
-        - "!main"
+    # branches: 
+    #     - "!main"
+    #     - "feature/*"
+    branches-ignore: 
         - "feature/*"
-
 jobs:
   env_demo_job_1:
     name: Environment Job 1 is executed

@@ -2,8 +2,8 @@ name: workflow-filters
 on:
   push:
     branches: 
-        - "main"
-        - "!feature/*"
+        - "!main"
+        - "feature/*"
 
 jobs:
   env_demo_job_1:

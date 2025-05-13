@@ -23,12 +23,12 @@ on: push
 
 jobs:
 
-    print_job:
+    build_job:
         strategy:
             matrix:
-                os: [ubuntu-latest, windows-latest]
+                os: [ubuntu-latest]
 
-        name: Print Echoes
+        name: Build Job
         runs-on: ${{ matrix.os }}
 
         steps:
@@ -36,6 +36,19 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Print the echo statements
-              run: echo "hello world"
+              run: echo "hello world Build"
+    test_job:
+        strategy:
+            matrix:
+                os: [ubuntu-latest]
 
+        name: Test Job
+        runs-on: ${{ matrix.os }}
+
+        steps:
+            - name: Checkout the Source Code
+              uses: actions/checkout@v4
+
+            - name: Print the echo statements
+              run: echo "hello world Test"
 

@@ -16,3 +16,11 @@ jobs:
       - name: Value of MY_ENV_VAR
         run: 
           echo "Value of MY_ENV_VAR is ${{ env.MY_ENV_VAR }}"
+    
+      - name: Run Step for main branch
+        if: github.ref == 'ref/heads/main'
+        run:  echo "from main"
+    
+      - name: Run Step for not main branch
+        if: github.ref != 'ref/heads/main'
+        run:  echo "not main"

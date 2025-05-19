@@ -5,7 +5,7 @@ on:
 jobs:
   my_first_shrunner:
     name: "My first runner"
-    runs-on: action-repo-runner-01
+    runs-on: self-hosted
     steps:
     - name: echo statement
       run: echo "My first runner is a success"

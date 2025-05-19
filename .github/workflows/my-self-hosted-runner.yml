@@ -1,0 +1,11 @@
+name: self hosted runner
+on:
+  push:
+
+jobs:
+  my_first_shrunner:
+    name: "My first runner"
+    runs-on: self-hosted-runner
+    steps:
+    - name: echo statement
+      run: echo "My first runner is a success"

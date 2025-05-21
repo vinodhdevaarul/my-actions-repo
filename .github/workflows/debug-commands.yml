@@ -8,10 +8,10 @@ jobs:
       run: echo "Normal Text"
 
     - name: "error Text"
-      run: echo "::error:: Error missing something"
+      run: echo "::error::Error missing something"
 
     - name: "error Text 2"
-      run: echo "::error title=error,file=app.js,line=2,endLine=3,col=5,endColumn=20:: Missing something"
+      run: echo "::error title=error,file=app.js,line=2,endLine=3,col=5,endColumn=20::Missing something"
 
     # - name: "Normal Text"
     #   run: echo "Normal Text"

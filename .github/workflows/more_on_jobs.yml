@@ -2,8 +2,13 @@ name: "more on jobs & their options"
 on: [push]
 jobs:
   more_on_jobs_1:
-  - name: "More on Jobs"
-    run: fail here
+    runs-on: ubuntu-latest
+    steps:
+    - name: "More on Jobs"
+      run: asdfas
   more_on_jobs_2:
-  - name: "More on Jobs"
-    run: echo "no failure"
+    runs-on: ubuntu-latest
+    steps:
+    - name: "More on Jobs"
+      run: echo "no error"
+      

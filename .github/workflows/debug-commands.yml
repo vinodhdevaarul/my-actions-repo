@@ -35,4 +35,4 @@ jobs:
     - name: "Secret String"
       env:
         MY_SECRET: "mypassword"
-      run: echo "::add-mask::${{ env.MY_SECRET }}"  
+      run: echo "::add-mask::$MY_SECRET"  

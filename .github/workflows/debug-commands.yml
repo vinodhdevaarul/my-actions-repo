@@ -13,6 +13,12 @@ jobs:
     - name: "error Text 2"
       run: echo "::error title=error,file=app.js,line=2,endLine=3,col=5,endColumn=20::Missing something"
 
+    - name: "error Text 2"
+      run: echo "::debug title=debug,file=app.js,line=2,endLine=3,col=5,endColumn=20::Missing something"      
+
+    - name: "error Text 2"
+      run: echo "::notice title=notice,file=app.js,line=2,endLine=3,col=5,endColumn=20::Missing something"
+
     # - name: "Normal Text"
     #   run: echo "Normal Text"
     # - name: "Normal Text"

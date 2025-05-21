@@ -19,8 +19,22 @@ jobs:
     - name: "error Text 2"
       run: echo "::notice title=notice,file=app.js,line=2,endLine=3,col=5,endColumn=20::Missing something"
 
-    # - name: "Normal Text"
-    #   run: echo "Normal Text"
-    # - name: "Normal Text"
-    #   run: echo "Normal Text"
+    - name: "error Text 2"
+      run: echo "::warning title=warning,file=app.js,line=2,endLine=3,col=5,endColumn=20::Missing something"      
+
+    - name: "Grouping Logs"
+      run: |
+        echo "::group::MyGroup"      
+        echo "1"      
+        echo "2"      
+        echo "3"      
+        echo "4"      
+        echo "5"      
+        echo "::endgroup::"
+
+    - name: "Secret String"
+      run: echo "::add-mask::SecretString"
+    
+    - name: "mask string"
+      run: echo "SecretString"
       

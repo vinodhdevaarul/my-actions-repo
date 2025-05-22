@@ -1,6 +1,5 @@
 name: 'WF trigger WF'
 on:
-  push:
   workflow_run:
    workflows: ['My First Workflow']
    types:

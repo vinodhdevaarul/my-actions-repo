@@ -33,6 +33,7 @@ jobs:
         echo "::endgroup::"
 
     - name: "Secret String"
-      env:
-        MY_SECRET: "mypassword"
-      run: echo "::add-mask::$MY_SECRET"  
+      run: echo "::add-mask::secret_string"  
+    
+    - name: "Secret String"
+      run: echo "secret_string"  

@@ -1,0 +1,19 @@
+name: 'WF trigger WF'
+on:
+  push:
+  workflow_run:
+   workflows: ['My First Workflow']
+   types:
+   - completed
+
+jobs:
+  wf_trigger:
+    runs-on: ubuntu-latest
+    name: "WF Trigger"
+    steps:
+    - name: run something
+      run: |
+        echo "Waiting for 5s"
+        sleep 5
+
+

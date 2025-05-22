@@ -1,3 +1,3 @@
-# my-actions-repo
+# my-actions-repo - testing approval
 
 testing before applying the branch protection rule

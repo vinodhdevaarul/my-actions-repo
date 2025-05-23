@@ -9,6 +9,7 @@ jobs:
           run: echo "running"
 
         - name: exit 1
+          id: fail_exit
           run: exit 1
 
         - name: runs on failure
@@ -25,4 +26,8 @@ jobs:
         - name: runs on cancelled
           if: cancelled()
           run: echo "ran on cancelled"
+
+        - name: runs on failure of step 2
+          if: failure() && steps.fail_exit.conclusion == 'failure'
+          run: echo "ran on failure"          
 

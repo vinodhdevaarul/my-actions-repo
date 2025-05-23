@@ -1,0 +1,13 @@
+name: Expressions & Contexts
+on: [push, issues]
+jobs:
+  runs-on-all-events:
+    runs-on: ubuntu-latest
+    name: Runs all Events
+    steps:
+    - name: echo contexts
+      run: |
+        echo ${{ github.events }}
+        echo ${{ github.runners }}
+        echo ${{ github.jobs }}
+        echo ${{ github.steps }}

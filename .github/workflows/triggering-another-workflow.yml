@@ -4,7 +4,8 @@ on:
    workflows: ['My First Workflow']
    types:
    - completed
-
+  
+  
 jobs:
   wf_trigger:
     runs-on: ubuntu-latest

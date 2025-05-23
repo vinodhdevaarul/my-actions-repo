@@ -3,7 +3,7 @@ on: [push, issues]
 jobs:
   runs-on-all-events:
     runs-on: ubuntu-latest
-    if: github.event_name == 'issues'
+    if: github.event_name == 'push'
     name: Runs all Events
     steps:
     - name: expressions
@@ -14,6 +14,7 @@ jobs:
        echo ${{ true == false }}
 
     - name: echo github contexts
+      if: github.event_name == 'issues'
       run: |
         echo '${{ toJson(github) }}'
 

@@ -5,9 +5,22 @@ jobs:
     runs-on: ubuntu-latest
     name: Runs all Events
     steps:
-    - name: echo contexts
+    - name: echo github contexts
       run: |
         echo ${{ toJson(github) }}
+
+    - name: echo runner contexts
+      run: |
         echo ${{ toJson(runner) }}
+
+    - name: echo job contexts
+      run: |
         echo ${{ toJson(job) }}
+
+    - name: echo steps contexts
+      run: |
         echo ${{ toJson(steps) }}
+
+    - name: echo secrets contexts
+      run: |
+        echo ${{ toJson(secrets) }}                        

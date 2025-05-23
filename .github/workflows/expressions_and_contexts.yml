@@ -5,6 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Runs all Events
     steps:
+    - name: expressions
+      run: |
+       echo ${{ 'string' == 'String'}}  
+       echo ${{ 1 > 2 }}
+       echo ${{ 1 > 2 && (2 == 2) }}
+       echo ${{ true == false }}
+
     - name: echo github contexts
       run: |
         echo '${{ toJson(github) }}'

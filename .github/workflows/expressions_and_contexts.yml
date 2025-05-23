@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: echo contexts
       run: |
-        echo ${{ github.events }}
-        echo ${{ github.runners }}
-        echo ${{ github.jobs }}
-        echo ${{ github.steps }}
+        echo ${{ toJson(github) }}
+        echo ${{ toJson(runner) }}
+        echo ${{ toJson(job) }}
+        echo ${{ toJson(steps) }}

@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: echo github contexts
       run: |
-        echo ${{ toJson(github) }}
+        echo '${{ toJson(github) }}'
 
     - name: echo runner contexts
       run: |

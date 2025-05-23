@@ -3,6 +3,7 @@ on: [push, issues]
 jobs:
   runs-on-all-events:
     runs-on: ubuntu-latest
+    if: github.event_name == 'issues'
     name: Runs all Events
     steps:
     - name: expressions

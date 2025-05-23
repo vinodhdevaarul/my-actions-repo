@@ -11,16 +11,16 @@ jobs:
 
     - name: echo runner contexts
       run: |
-        echo ${{ toJson(runner) }}
+        echo '${{ toJson(runner) }}'
 
     - name: echo job contexts
       run: |
-        echo ${{ toJson(job) }}
+        echo '${{ toJson(job) }}'
 
     - name: echo steps contexts
       run: |
-        echo ${{ toJson(steps) }}
+        echo '${{ toJson(steps) }}'
 
     - name: echo secrets contexts
       run: |
-        echo ${{ toJson(secrets) }}                        
+        echo '${{ toJson(secrets) }}'                        

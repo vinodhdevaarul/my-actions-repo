@@ -8,6 +8,9 @@ jobs:
         - name: run something
           run: echo "running"
 
+        - name: exit 1
+          run: exit 1
+
         - name: runs on failure
           if: failure()
           run: echo "ran on failure"

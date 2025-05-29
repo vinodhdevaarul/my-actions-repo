@@ -1,0 +1,16 @@
+name: dynamic matrix with inputs
+on: 
+    push:
+    workflow_dispatch: 
+        inputs:
+            os:
+                description:  OS Info
+                default: 'ubuntu-latest'
+                type: string
+jobs:
+    dynamic_matrix_with_inputs:
+        name: "Testing dynamic matrix"            
+        runs-on: ${{ inputs.os }}
+        steps:
+        - name: echo hello world
+          run : echo "hello world"

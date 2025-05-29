@@ -25,8 +25,8 @@ jobs:
 
             - name: get the inputs
               run: |
-                ${{ inputs.name }}              
-                ${{ secrets.PASSWORD }}              
+                echo ${{ inputs.name }}              
+                echo ${{ secrets.PASSWORD }}              
 
             - name: send date value
               id: date-step

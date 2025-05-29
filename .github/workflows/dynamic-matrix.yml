@@ -50,7 +50,10 @@ jobs:
         name: "Testing dynamic matrix"
         needs: prepare_matrix            
         #runs-on: ubuntu-latest
-        runs-on: ${{ needs.prepare_matrix.outputs.os_matrix }}
+        strategy:
+          matrix:
+            os: ${{ fromJson(needs.prepare_matrix.outputs.os_matrix) }}
+        runs-on: ${{ matrix.os }}
         steps:
         # below job will not print out the value    
         - name: echo hello world

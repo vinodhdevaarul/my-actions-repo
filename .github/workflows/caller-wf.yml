@@ -12,6 +12,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: ./.github/workflows/reusable-wf.yml@main
+              with:
+                name: ${{ inputs.name }}
 
             - uses: actions/checkout@v6
 

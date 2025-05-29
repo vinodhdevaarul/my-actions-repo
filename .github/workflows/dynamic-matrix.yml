@@ -11,27 +11,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         # transfer value between steps    
-        - uses: actions/setup-python@v5
-          with:
-            python-version: '3.13'
-
         - name: print os val
           run: echo ${{ github.event.inputs.os }}
             
-        - name: split values
-          id: step-0
-          run: |
-            import os, json
-            os = ${{ github.event.inputs.os }}.split(',')
-            with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-              f.write(f"result=os")         
-          shell: python  
-            
         - name: echo val 1
           id: step-1
-          run: |
-                echo "1=$GITHUB_OUTPUT"
-                echo "2=${{ steps.step-0.outputs.result }}"
+          run: echo "1=$GITHUB_OUTPUT"
 
         - name: echo val 2
           id: step-2
@@ -41,11 +26,11 @@ jobs:
           run: |
             echo ${{ steps.step-1.outputs.val1 }}
             echo ${{ steps.step-2.outputs.val2 }}
-          
 
-          # dynamic_matrix_with_inputs:
-    #     name: "Testing dynamic matrix"            
-    #     runs-on: ${{ inputs.os }}
-    #     steps:
-    #     - name: echo hello world
-    #       run : echo "hello world"
+    dynamic_matrix_with_inputs:
+        name: "Testing dynamic matrix"
+        needs: prepare_matrix            
+        runs-on: ubuntu-latest
+        steps:
+        - name: echo hello world
+          run : echo $GITHUB_OUTPUT

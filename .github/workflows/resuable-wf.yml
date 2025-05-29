@@ -1,0 +1,27 @@
+name: Reusable workflow
+on:
+    workflow_call: 
+        inputs:
+            name:
+                description: 'provide your name'
+                default: 'someone'
+                type: string
+                required: true
+        secrets:
+            password:
+                description: 'provide your password'
+                required: true
+
+jobs:
+    called-workflow:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: get the github context
+              run: ${{ fromJson(github) }}
+
+            - name: get the inputs
+              run: |
+                ${{ inputs.name }}              
+                ${{ secrets.password }}              

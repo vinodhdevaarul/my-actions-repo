@@ -12,6 +12,7 @@ jobs:
         outputs:
           val1: ${{steps.step-1.outputs.val1}}
           val2: ${{steps.step-2.outputs.val2}}
+          val3: ${{steps.step-3.outputs.val3}}
         steps:
         # transfer value between steps    
         - name: print os val
@@ -19,16 +20,21 @@ jobs:
             
         - name: echo val 1
           id: step-1
-          run: echo "val1=$GITHUB_OUTPUT"
+          run: echo "val1=val1" >> $GITHUB_OUTPUT
 
         - name: echo val 2
           id: step-2
           run: echo "val2=val2" >> $GITHUB_OUTPUT
 
+        - name: echo val 3
+          id: step-3
+          run: echo "val3=val3"
+
         - name: print val1, val2
           run: |
             echo ${{ steps.step-1.outputs.val1 }}
             echo ${{ steps.step-2.outputs.val2 }}
+            echo ${{ steps.step-3.outputs.val3 }}
 
     dynamic_matrix_with_inputs:
         name: "Testing dynamic matrix"
@@ -47,3 +53,6 @@ jobs:
 
         - name: print val2
           run : echo ${{ needs.prepare_matrix.outputs.val2 }}
+
+        - name: print val3
+          run : echo ${{ needs.prepare_matrix.outputs.val3 }}          

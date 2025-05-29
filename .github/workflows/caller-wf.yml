@@ -4,18 +4,18 @@ on:
         inputs:
             name:
                 description: 'provide your name'
-                default: 'someone'
+                default: 'some111'
                 type: string
                 required: true
 jobs:
     called-workflow:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
+
             - uses: ./.github/workflows/reusable-wf.yml@main
               with:
                 name: ${{ inputs.name }}
-
-            - uses: actions/checkout@v4
 
             - name: get the github context
               run: ${{ fromJson(github) }}

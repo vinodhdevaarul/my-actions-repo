@@ -31,3 +31,6 @@ jobs:
             - name: send date value
               id: date-step
               run: echo "date_val=$(date)" > $GITHUB_OUTPUT
+
+            - name: print date value
+              run: echo "${{ steps.date-step.outputs.date_val }}            

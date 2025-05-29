@@ -9,6 +9,6 @@ on:
                 required: true
 jobs:
     called-workflow:
-        uses: ./.github/workflows/reusable-wf.yml@main
+        uses: ./.github/workflows/reusable-wf.yml
         with:
            name: ${{ inputs.name }}                        

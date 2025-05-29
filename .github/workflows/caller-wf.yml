@@ -11,7 +11,7 @@ jobs:
     called-workflow:
         runs-on: ubuntu-latest
         steps:
-            - uses: .github/workflows/reusable-wf.yml@main
+            - uses: ./.github/workflows/reusable-wf.yml@main
 
             - uses: actions/checkout@v6
 

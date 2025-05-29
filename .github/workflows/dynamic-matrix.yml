@@ -5,12 +5,26 @@ on:
         inputs:
             os:
                 description:  OS Info
-                default: 'ubuntu-latest'
+                default: 'ubuntu-latest,windows-latest'
                 type: string
 jobs:
     prepare_matrix:
         runs-on: ubuntu-latest
         steps:
+        # transfer value between steps    
+        - uses: actions/setup-python@v5
+          with:
+            python-version: '3.13'
+
+        - name: print os val
+          run: echo ${{ github.event.inputs.os }}
+            
+        - name: split values
+          id: step-0
+          run: |
+            return "abcd"
+          shell: python  
+            
         - name: echo val 1
           id: step-1
           run: echo "val1=val1" >> $GITHUB_OUTPUT
@@ -22,7 +36,7 @@ jobs:
         - name: print val1, val2
           run: |
             echo ${{ steps.step-1.outputs.val1 }}
-            echo ${{ steps.step-1.outputs.val2 }}
+            echo ${{ steps.step-2.outputs.val2 }}
           
 
           # dynamic_matrix_with_inputs:

@@ -12,3 +12,5 @@ jobs:
         uses: ./.github/workflows/reusable-wf.yml
         with:
            name: ${{ inputs.name }}                        
+        secrets:
+            password: ${{ secrets.PASSWORD }}

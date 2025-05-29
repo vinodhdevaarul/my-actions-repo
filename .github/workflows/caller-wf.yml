@@ -14,3 +14,9 @@ jobs:
            name: ${{ inputs.name }}                        
         secrets:
             password: ${{ secrets.PASSWORD }}
+    get-date-from-called-wf:
+        runs-on: ubuntu-latest
+        needs: called-workflow
+        steps:
+            - name: printing the date from rw output
+              run: echo ${{ needs.called-workflow.outputs.date_val }}

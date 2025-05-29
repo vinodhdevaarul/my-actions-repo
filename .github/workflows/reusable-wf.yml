@@ -14,6 +14,8 @@ on:
 
 jobs:
     called-workflow:
+        outputs:
+          date_val: ${{ steps.date-step.outputs.date_val }}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -25,3 +27,7 @@ jobs:
               run: |
                 ${{ inputs.name }}              
                 ${{ secrets.PASSWORD }}              
+
+            - name: send date value
+              id: date-step
+              run: echo "date_val=$(date)" > $GITHUB_OUTPUT

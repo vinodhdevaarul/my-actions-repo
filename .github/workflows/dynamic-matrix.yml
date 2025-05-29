@@ -13,6 +13,7 @@ jobs:
           val1: ${{steps.step-1.outputs.val1}}
           val2: ${{steps.step-2.outputs.val2}}
           val3: ${{steps.step-3.outputs.val3}}
+          os_matrix: ${{steps.step-3.outputs.os_json}}
         steps:
         # transfer value between steps    
         - name: print os val
@@ -30,16 +31,22 @@ jobs:
           id: step-3
           run: echo "val3=val3"
 
-        - name: print val1, val2
+        - name: print val1, val2, val3
           run: |
             echo ${{ steps.step-1.outputs.val1 }}
             echo ${{ steps.step-2.outputs.val2 }}
             echo ${{ steps.step-3.outputs.val3 }}
 
+        - name: split inputs
+          run: |
+             echo "os_json=$(jq -c -R 'split(",")' <<< ${{ github.event.inputs.os }})" >> $GITHUB_OUTPUT
+
+
     dynamic_matrix_with_inputs:
         name: "Testing dynamic matrix"
         needs: prepare_matrix            
-        runs-on: ubuntu-latest
+        #runs-on: ubuntu-latest
+        runs-on: ${{ needs.prepare_matrix.outputs.os_matrix }}
         steps:
         # below job will not print out the value    
         - name: echo hello world
@@ -56,3 +63,4 @@ jobs:
 
         - name: print val3
           run : echo ${{ needs.prepare_matrix.outputs.val3 }}          
+    

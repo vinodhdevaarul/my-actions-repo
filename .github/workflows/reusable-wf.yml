@@ -11,12 +11,16 @@ on:
             password:
                 description: 'provide your password'
                 required: true
+        outputs:
+          date_val: 
+            description: Returning date from job
+            value: ${{ jobs.called-workflow.outputs.date_val }}
 
 jobs:
     called-workflow:
+        runs-on: ubuntu-latest
         outputs:
           date_val: ${{ steps.date-step.outputs.date_val }}
-        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
 
@@ -30,7 +34,4 @@ jobs:
 
             - name: send date value
               id: date-step
-              run: echo "date_val=$(date)" >> "$GITHUB_OUTPUT"
-
-            - name: print date value
-              run: echo "${{ steps.date-step.outputs.date_val }}            
+              run: echo "date_val=$(date)" >> $GITHUB_OUTPUT

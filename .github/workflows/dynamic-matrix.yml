@@ -36,8 +36,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         # below job will not print out the value    
+        - name: echo hello world
+          run : echo $GITHUB_OUTPUT
+
+        - name: print val1
+          run : echo $GITHUB_OUTPUT
+
         - name: echo val1
           run : echo ${{ needs.prepare_matrix.outputs.val1 }}
 
         - name: print val2
-          run : run : echo ${{ needs.prepare_matrix.outputs.val2 }}
+          run : echo ${{ needs.prepare_matrix.outputs.val2 }}

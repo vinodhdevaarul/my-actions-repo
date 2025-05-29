@@ -40,7 +40,10 @@ jobs:
         - name: split inputs
           id: step-4
           run: |
-             echo "os_json=$(jq -c -R 'split(",")' <<< ${{ github.event.inputs.os }})" >> $GITHUB_OUTPUT
+            echo "os_json=$(jq -c -R 'split(",")' <<< ${{ github.event.inputs.os }})" >> $GITHUB_OUTPUT
+
+        - name: print val1, val2, val3
+          run:  echo ${{ steps.step-4.outputs.os_json }}
 
 
     dynamic_matrix_with_inputs:

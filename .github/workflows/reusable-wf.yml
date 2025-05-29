@@ -24,4 +24,4 @@ jobs:
             - name: get the inputs
               run: |
                 ${{ inputs.name }}              
-                ${{ secrets.password }}              
+                ${{ secrets.PASSWORD }}              

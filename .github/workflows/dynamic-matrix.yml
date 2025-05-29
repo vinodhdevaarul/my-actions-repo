@@ -21,6 +21,7 @@ jobs:
         - name: split values
           id: step-0
           run: |
+            import os
             with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"result=${{ github.event.inputs.os }}.split(',')")         
           shell: python  

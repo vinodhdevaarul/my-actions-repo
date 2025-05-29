@@ -13,7 +13,7 @@ jobs:
           val1: ${{steps.step-1.outputs.val1}}
           val2: ${{steps.step-2.outputs.val2}}
           val3: ${{steps.step-3.outputs.val3}}
-          os_matrix: ${{steps.step-3.outputs.os_json}}
+          os_matrix: ${{steps.step-4.outputs.os_json}}
         steps:
         # transfer value between steps    
         - name: print os val
@@ -38,6 +38,7 @@ jobs:
             echo ${{ steps.step-3.outputs.val3 }}
 
         - name: split inputs
+          id: step-4
           run: |
              echo "os_json=$(jq -c -R 'split(",")' <<< ${{ github.event.inputs.os }})" >> $GITHUB_OUTPUT
 

@@ -22,7 +22,7 @@ jobs:
           id: step-0
           run: |
             import os, json
-            os = ${{ github.event.inputs.os }}).split(',')
+            os = ${{ github.event.inputs.os }}.split(',')
             with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"result=os")         
           shell: python  

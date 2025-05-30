@@ -1,5 +1,5 @@
 name: cache workflow
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   build_job:
     runs-on: ubuntu-latest

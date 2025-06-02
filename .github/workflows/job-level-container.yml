@@ -16,7 +16,21 @@ jobs:
             ls -ltra
             pwd
             docker ps -a
-        
+
+        - name: Confirm container environment
+          run: |
+            echo "Python version:"
+            python --version
+            echo
+            echo "Checking for /.dockerenv:"
+            ls -l /.dockerenv || echo "Not found"
+            echo
+            echo "/proc/1/cgroup:"
+            cat /proc/1/cgroup
+            echo
+            echo "Container image info:"
+            grep PRETTY /etc/os-release || echo "No OS info found"
+            
         - run: python -m unittest discover
 
 

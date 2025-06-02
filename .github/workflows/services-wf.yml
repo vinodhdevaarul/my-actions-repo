@@ -18,14 +18,9 @@ jobs:
 
 
     steps:
-    #   - name: Wait for NGINX to be ready
-    #     run: |
-    #       echo "Waiting for NGINX to respond..."
-    #       for i in {1..10}; do
-    #         curl -I http://localhost:8080 && break
-    #         echo "NGINX not up yet..."
-    #         sleep 3
-    #       done
+      - name: Job services context
+        run: |
+          echo '${{ toJson(job.services) }}'
 
       - name: Test NGINX response
         run: |

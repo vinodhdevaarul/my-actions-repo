@@ -1,0 +1,22 @@
+name: job-level-docker-container
+on: [push]
+
+jobs:
+    job-level-docker:
+        runs-on: ubuntu-latest
+        container: 
+            image: python:latest
+        
+        steps:
+        - uses: actions/checkout@v4
+
+        - name: paths
+          run: |
+            echo $GITHUB_WORKSPACE
+            ls -ltra
+            pwd
+            docker ps -a
+        
+        - run: python -m unittest discover
+
+

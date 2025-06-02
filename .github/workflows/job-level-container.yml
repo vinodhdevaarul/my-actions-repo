@@ -29,5 +29,8 @@ jobs:
             entrypoint: /bin/sh
             args: -c "python --version && ls -ltra && pwd && echo WS is $GITHUB_WORKSPACE"
 
-
+        - name: Run Scripts
+          uses: docker://python:latest
+          with:
+            entrypoint: ./script.sh
 

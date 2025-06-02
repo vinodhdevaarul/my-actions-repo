@@ -27,7 +27,7 @@ jobs:
           uses: docker://python:latest
           with:
             entrypoint: /bin/sh
-            args: -c "python --version && ls -ltra && pwd && echo $GITHUB_WORKSPACE"
+            args: -c "python --version && ls -ltra && pwd && echo 'WS:$GITHUB_WORKSPACE'"
 
 
 

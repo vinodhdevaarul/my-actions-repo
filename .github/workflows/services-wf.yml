@@ -1,0 +1,33 @@
+name: NGINX Service Example
+
+on: [push]
+
+jobs:
+  nginx-test:
+    runs-on: ubuntu-latest
+
+    services:
+      nginx_1:
+        image: nginx:latest
+        ports:
+          - 8080:80  # Map container port 80 to host port 8080
+      nginx_2:
+        image: nginx:latest
+        ports:
+          - 8090:80  # Map container port 80 to host port 8080
+
+
+    steps:
+    #   - name: Wait for NGINX to be ready
+    #     run: |
+    #       echo "Waiting for NGINX to respond..."
+    #       for i in {1..10}; do
+    #         curl -I http://localhost:8080 && break
+    #         echo "NGINX not up yet..."
+    #         sleep 3
+    #       done
+
+      - name: Test NGINX response
+        run: |
+          curl -I http://localhost:8080
+          curl -I http://localhost:8090

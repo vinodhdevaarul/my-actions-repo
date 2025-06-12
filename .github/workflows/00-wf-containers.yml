@@ -18,6 +18,8 @@ jobs:
         runs-on: ubuntu-latest
         container:
             image: python:3.10
+            volumes:
+              - $GITHUB_WORKSPACE:/app
         steps:
         - name: paths
           run: |

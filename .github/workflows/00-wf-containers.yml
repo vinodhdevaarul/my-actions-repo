@@ -19,7 +19,8 @@ jobs:
         container:
             image: python:3.10
             volumes:
-              - $GITHUB_WORKSPACE:/app
+              - $${{ github.workspace }}:/app
+            # use context here not $GITHUB_WORKSPACE  
         steps:
         - name: paths
           run: |

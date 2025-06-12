@@ -1,6 +1,13 @@
 name: 00-workflow-containers
-on: [push]
-
+on: 
+    #push:
+    workflow_dispatch: 
+        inputs:
+            greetings:
+                description: "Provide a Greeting"
+                default: "Welcome to GH Learning"
+                type: string
+                required: true
 jobs:
     non_docker_containers:
         name: non docker containers
@@ -13,14 +20,19 @@ jobs:
             ls -ltra
             pwd
         # step 2
+        
     docker_containers:
         name: docker containers
         runs-on: ubuntu-latest
         container:
             image: python:3.10
-            volumes:
-              - ${{ github.workspace }}:/app
+            # volumes:
+            #   - ${{ github.workspace }}:/app
+            
             # use context here not $GITHUB_WORKSPACE  
+            # you can also use options: --mount type=bind,source=${{ github.workspace }},target=/app
+            env:
+                GREETINGS: ${{ github.event.inputs.greetings }}
         steps:
         - name: paths
           run: |
@@ -28,3 +40,12 @@ jobs:
             python --version
             ls -ltra
             pwd
+
+        - name: print from env
+          run: |
+            echo $GREETINGS    
+        
+        - name: print from env
+          run: |
+            echo ${{ github.event.inputs.greetings }}    
+

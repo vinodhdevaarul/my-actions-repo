@@ -8,7 +8,7 @@ jobs:
         steps:
         - name: paths
           run: |
-            echo $GITHUB_WORKSPCE    
+            echo $GITHUB_WORKSPACE    
             python --version
             ls -ltra
             pwd
@@ -23,7 +23,7 @@ jobs:
         steps:
         - name: paths
           run: |
-            echo $GITHUB_WORKSPCE    
+            echo $GITHUB_WORKSPACE    
             python --version
             ls -ltra
             pwd

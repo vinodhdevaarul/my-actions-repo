@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY greet.py .
 
-CMD ["python", "greet.py"]
+ENTRYPOINT ["python", "greet.py"]

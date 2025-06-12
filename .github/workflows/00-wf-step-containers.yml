@@ -12,19 +12,19 @@ jobs:
     docker_containers:
         name: docker containers
         runs-on: ubuntu-latest
-        container:
-            image: python:3.10
-            # volumes:
-            #   - ${{ github.workspace }}:/app
+        # container:
+        #     image: python:3.10
+        #     # volumes:
+        #     #   - ${{ github.workspace }}:/app
             
-            # use context here not $GITHUB_WORKSPACE  
-            # you can also use options: --mount type=bind,source=${{ github.workspace }},target=/app
-            env:
-                GREETINGS: ${{ github.event.inputs.greetings }}
+        #     # use context here not $GITHUB_WORKSPACE  
+        #     # you can also use options: --mount type=bind,source=${{ github.workspace }},target=/app
+        #     env:
+        #         GREETINGS: ${{ github.event.inputs.greetings }}
         steps:
         - name: checkout
           uses: actions/checkout@v4
-            
+
         - name: paths
           run: |
             echo $GITHUB_WORKSPACE    
@@ -32,6 +32,12 @@ jobs:
             ls -ltra
             pwd
 
+        - name: Build JAR inside Docker container
+          uses: docker://python:latest
+          with:
+            entrypoint: /bin/sh
+            args: -c "python --version && ls -ltra && pwd && echo WS is $GITHUB_WORKSPACE"
+            
         - name: print from env
           run: |
             echo $GREETINGS    

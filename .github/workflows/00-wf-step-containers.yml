@@ -1,0 +1,42 @@
+name: 00-workflow-step-containers
+on: 
+    #push:
+    workflow_dispatch: 
+        inputs:
+            greetings:
+                description: "Provide a Greeting"
+                default: "Welcome to GH Learning"
+                type: string
+                required: true
+jobs:
+    docker_containers:
+        name: docker containers
+        runs-on: ubuntu-latest
+        container:
+            image: python:3.10
+            # volumes:
+            #   - ${{ github.workspace }}:/app
+            
+            # use context here not $GITHUB_WORKSPACE  
+            # you can also use options: --mount type=bind,source=${{ github.workspace }},target=/app
+            env:
+                GREETINGS: ${{ github.event.inputs.greetings }}
+        steps:
+        - name: checkout
+          uses: actions/checkout@v4
+            
+        - name: paths
+          run: |
+            echo $GITHUB_WORKSPACE    
+            python --version
+            ls -ltra
+            pwd
+
+        - name: print from env
+          run: |
+            echo $GREETINGS    
+        
+        - name: print from env
+          run: |
+            echo ${{ github.event.inputs.greetings }}    
+

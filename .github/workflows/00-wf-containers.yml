@@ -10,6 +10,9 @@ jobs:
           run: |
             echo $GITHUB_WORKSPCE    
             python --version
+            ls -ltra
+            pwd
+        # step 2
     docker_containers:
         name: docker containers
         runs-on: ubuntu-latest
@@ -20,3 +23,5 @@ jobs:
           run: |
             echo $GITHUB_WORKSPCE    
             python --version
+            ls -ltra
+            pwd

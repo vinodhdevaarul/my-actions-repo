@@ -1,0 +1,12 @@
+name: 'Greet People Action'
+description: 'A custom GitHub Action that greets people'
+inputs:
+  greetings:
+    description: 'Name of the person to greet'
+    required: true
+    default: 'World'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.greetings }}

@@ -28,3 +28,47 @@ jobs:
           run: |
             ls -ltra $GITHUB_WORKSPACE
             pwd
+
+# GitHub Actions:
+
+# Pulls python:latest image.
+
+# Spins up a Docker container.
+
+# Mounts the ${{ github.workspace }} directory automatically inside that container.
+
+# The container executes your command with that shared volume already mounted.
+
+# By default: GitHub always mounts the workspace into /github/workspace inside any Docker-based action, including docker:// form.
+
+# 🔎 In your case:
+# Inside the container:
+# Your current directory is /github/workspace (unless overridden).
+
+# pwd prints /github/workspace.
+
+# touch abc.txt creates /github/workspace/abc.txt.
+
+# Outside the container (normal step):
+# You run:
+
+# bash
+# Copy
+# Edit
+# ls -ltra $GITHUB_WORKSPACE
+# pwd
+# $GITHUB_WORKSPACE points to something like:
+# /home/runner/work/<repo>/<repo>
+
+# Which maps to the same location that was mounted inside the container.
+
+# 🔑 🔑 The hidden automatic volume mount
+# Behind the scenes, GitHub does something like:
+
+# bash
+# Copy
+# Edit
+# docker run -v $GITHUB_WORKSPACE:/github/workspace ...
+# You don't see this, but it's baked into how GitHub executes all Docker-based actions.
+
+# This is part of GitHub Actions Docker Action Contract — documented here but not very loudly.

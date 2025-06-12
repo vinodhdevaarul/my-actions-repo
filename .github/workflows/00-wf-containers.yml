@@ -1,0 +1,22 @@
+name: 00-workflow-containers
+on: [push]
+
+jobs:
+    non_docker_containers:
+        name: docker containers
+        runs-on: ubuntu-latest
+        steps:
+        - name: paths
+          run: |
+            echo $GITHUB_WORKSPCE    
+            echo python --version
+    docker_containers:
+        name: docker containers
+        runs-on: ubuntu-latest
+        container:
+            image: python:3.10
+        steps:
+        - name: paths
+          run: |
+            echo $GITHUB_WORKSPCE    
+            echo python --version

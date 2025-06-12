@@ -1,8 +1,8 @@
-import os
+import sys
 
 def main():
-    name = os.environ.get("INPUT_NAME", "World")
-    print(f"Hello {name}!")
+    greeting = sys.argv[1]
+    print(f"Hello {greeting}!")
 
 if __name__ == "__main__":
     main()

@@ -14,3 +14,9 @@ jobs:
           uses: ./
           with:
             greetings: "Hello from custom action"        
+
+        - name: Run custom docker action
+          #uses: ./.github/actions/greet-people-action
+          uses: vinodhdevaarul/my-actions-separate-repo@main
+          with:
+            name: "Vinodh Deva Arul"                    

@@ -1,0 +1,13 @@
+name: 02-composite-actions
+on: 
+    #push:
+    workflow_dispatch: 
+
+jobs:
+    composite_action:
+        name: composite action
+        runs-on: ubuntu-latest
+        steps:
+        - name: setup-python
+          uses: ./.github/actions/setup-python
+          

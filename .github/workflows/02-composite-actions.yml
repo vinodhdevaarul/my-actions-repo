@@ -8,6 +8,9 @@ jobs:
         name: composite action
         runs-on: ubuntu-latest
         steps:
+        - name: Checkout Code
+          uses: actions/checkout@v3  
+
         - name: setup-python
           uses: ./.github/actions/setup-python
           

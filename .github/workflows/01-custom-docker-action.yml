@@ -15,7 +15,7 @@ jobs:
           with:
             greetings: "Hello from custom action"        
 
-        - name: Run custom docker action
+        - name: Run custom docker action -2
           #uses: ./.github/actions/greet-people-action
           uses: vinodhdevaarul/my-actions-separate-repo@main
           with:

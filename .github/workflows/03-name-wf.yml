@@ -1,4 +1,4 @@
-name: ${{ 'naming-wf' }} 
+name: ${{ 'USERNAME' }} 
 on:
     push:
         branches:

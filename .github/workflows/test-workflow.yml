@@ -16,7 +16,19 @@ jobs:
               run: echo $my_name
 
             - name: print my_name 2
-              run: echo "${{ steps.step1.outputs.my_name }}"
+              run: echo "my_name2=Deva" >> $GITHUB_ENV
+              
+            - name: print my_name 2
+              run: echo ${{ env.my_name2}}
+              
+            - name: print my_name 2
+              run: echo ${{ steps.step1.outputs.my_name }}
 
+            - name: print my_name 3
+              id: step2
+              run: echo "my_name3=Arul" >> $GITHUB_OUTPUTS
+
+            - name: print my_name 3
+              run: echo ${{ steps.step2.outputs.my_name3 }}
 
 

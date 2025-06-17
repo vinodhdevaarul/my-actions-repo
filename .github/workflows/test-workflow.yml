@@ -16,7 +16,7 @@ jobs:
               run: echo $my_name
 
             - name: print my_name 2
-              run: echo ${{ steps.step1.outputs.my_name }}
+              run: echo "${{ steps.step1.outputs.my_name }}"
 
 
 

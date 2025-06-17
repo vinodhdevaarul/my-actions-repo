@@ -1,0 +1,13 @@
+name: ${{ 'naming-wf' }} 
+on:
+    push:
+        branches:
+            - main
+jobs:
+  naming-workflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: run hello
+      run: echo "Hello, world! This is the naming workflow."

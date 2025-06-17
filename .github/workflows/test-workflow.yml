@@ -26,7 +26,7 @@ jobs:
 
             - name: print my_name 3
               id: step2
-              run: echo "my_name3=Arul" >> $GITHUB_OUTPUTS
+              run: echo "my_name3=Arul" >> $GITHUB_OUTPUT
 
             - name: print my_name 3
               run: echo ${{ steps.step2.outputs.my_name3 }}

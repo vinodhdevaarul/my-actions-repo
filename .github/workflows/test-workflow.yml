@@ -1,0 +1,22 @@
+name: 'Test Workflow'
+
+on: push
+
+jobs:
+    build_job:
+        name: Build Job
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Print the echo statements
+              id: step1
+              run: echo "my_name=vinodh" >> $GITHUB_ENV
+
+            - name: print my_name 1
+              run: echo $my_name
+
+            - name: print my_name 2
+              run: echo ${{ steps.step1.outputs.my_name }}
+
+
+

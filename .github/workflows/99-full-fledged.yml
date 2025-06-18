@@ -45,6 +45,15 @@ jobs:
               run: |
                 echo "Value is $my_name_4"      
 
+            - name: write report.txt
+              run: |
+                echo "this is my report" >> report.txt      
+
+            - uses: actions/upload-artifact@v4
+              with:
+                name: my-artifact
+                path: report.txt
+
     deploy:
         runs-on: ubuntu-latest
         needs: build
@@ -65,3 +74,14 @@ jobs:
         - name: print my_name_4 declared at Workflow Level
           run: |
                 echo "Value is $my_name_4"                   
+
+        - uses: actions/download-artifact@v4
+          with:
+            name: my-artifact       
+
+        - name: cat report.txt
+          run: |
+                echo "::group::printing report"
+                cat report.txt                  
+                echo "::endgroup::"
+            

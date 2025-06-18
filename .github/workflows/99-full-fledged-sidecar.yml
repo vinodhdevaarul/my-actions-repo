@@ -18,7 +18,10 @@ jobs:
         #         echo "::group::printing report"
         #         cat report.txt                  
         #         echo "::endgroup::"
-      
+
+        - name: checkout code
+          uses: actions/checkout@v4  
+
         - uses: ./github/workflows/99-full-fledged-reusable-workflow.yml
           with:
             name: "DonivAvedLura"

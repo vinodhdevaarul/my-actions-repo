@@ -1,0 +1,19 @@
+name: full-fledged-sidecar
+on:
+  workflow_call:
+  workflow_dispatch:  
+jobs:
+    use-artifact:
+        name: use-artifact
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/download-artifact@v4
+          with:
+            name: my-artifact       
+
+        - name: cat report.txt
+          run: |
+                echo "::group::printing report"
+                cat report.txt                  
+                echo "::endgroup::"
+            

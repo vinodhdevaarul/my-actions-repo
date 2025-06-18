@@ -2,6 +2,8 @@ name: full-fledged-sidecar
 on:
   workflow_call:
   workflow_dispatch:  
+  workflow_run:
+    workflows: ["full-fledged"]
 jobs:
     use-artifact:
         name: use-artifact

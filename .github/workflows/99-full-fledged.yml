@@ -4,11 +4,13 @@ on:
         branches:
         - main
 env:
-    my_name_3: "Arul"        
+    my_name_4: doniv     
 jobs:
     build:
         name: Building Application
         runs-on: ubuntu-latest
+        env:
+            my_name_3: "Arul"   
         outputs:
           build_my_name_1: ${{ steps.set_my_name_2.outputs.my_name_2 }}
         steps:    
@@ -38,6 +40,11 @@ jobs:
             - name: print my_name_3 declared at Job Level
               run: |
                 echo "Value is $my_name_3"                
+
+            - name: print my_name_4 declared at Workflow Level
+              run: |
+                echo "Value is $my_name_4"      
+
     deploy:
         runs-on: ubuntu-latest
         needs: build
@@ -54,3 +61,7 @@ jobs:
         - name: print my_name_3 declared at Job Level
           run: |
                 echo "Value is $my_name_3"        
+
+        - name: print my_name_4 declared at Workflow Level
+          run: |
+                echo "Value is $my_name_4"                   

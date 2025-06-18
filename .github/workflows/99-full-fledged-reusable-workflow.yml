@@ -1,0 +1,16 @@
+name: full-fledged-reusable-workflow
+on:
+    workflow_dispatch: 
+        inputs:
+            name:
+                description: Give a Name
+                type: string
+                required: true
+jobs:
+    reusable:
+        name: reusable workflow
+        runs-on: ubuntu-latest
+        steps:
+        - name: print the name
+          run: |
+            echo ${{ inputs.name }}                

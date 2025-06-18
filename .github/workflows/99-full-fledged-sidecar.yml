@@ -1,6 +1,6 @@
 name: full-fledged-sidecar
 on:
-  workflow_call:
+  #workflow_call:
   workflow_dispatch:  
   workflow_run:
     workflows: ["full-fledged"]
@@ -18,4 +18,8 @@ jobs:
                 echo "::group::printing report"
                 cat report.txt                  
                 echo "::endgroup::"
+      
+        - uses: ./github/workflows/99-full-fledged-reusable-workflow.yml
+          with:
+            name: "DonivAvedLura"
             

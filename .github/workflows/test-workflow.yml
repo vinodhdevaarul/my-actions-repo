@@ -19,7 +19,7 @@ jobs:
               run: echo "my_name2=Deva" >> $GITHUB_ENV
               
             - name: print my_name 2
-              run: echo ${{ env.my_name2}}
+              run: echo ${{ env.my_name2 }}
               
             - name: print my_name 2
               run: echo ${{ steps.step1.outputs.my_name }}

@@ -1,0 +1,39 @@
+name: full-fledged
+on:
+    push:
+        branches:
+        - main
+jobs:
+    build:
+        name: Building Application
+        runs-on: ubuntu-latest
+        steps:    
+            - name: save my_name_1 in build
+              run: |
+                echo "::debug::processing value 1"
+                echo "my_name_1="Vinodh" > $GITHB_ENV
+
+            - name: save my_name_2 in build
+              run: |
+                echo "::debug::processing value 2"
+                echo "my_name_2="Deva" > $GITHB_OUTPUT
+        
+            - name: print my_name_1 in build
+              run: |
+                echo "$my_name_1"
+
+            - name: print my_name_2 in build
+              run: |
+                echo "$my_name_2"                            
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+        - name: print my_name_2 in deploy
+          run: |
+            echo "$my_name_1"
+
+        - name: print my_name_2 in deploy
+          run: |
+            echo "$my_name_2"            

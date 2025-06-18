@@ -5,8 +5,13 @@ on:
 jobs:
     use-artifact:
         name: use-artifact
-        runs-on: ubuntu-latest
-        steps:
+        uses: vinodhdevaarul/my-actions-repo/.github/workflows/99-full-fledged-reusable-workflow.yml@main
+        with:
+            name: "DonivAvedLura"
+    deploy-job:
+      name: deploy job
+      runs-on: ubuntu-latest         
+      steps:
         # - uses: actions/download-artifact@v4
         #   with:
         #     name: my-artifact       
@@ -20,7 +25,5 @@ jobs:
         - name: checkout code
           uses: actions/checkout@v4  
 
-        - uses: vinodhdevaarul/my-actions-repo/.github/workflows/99-full-fledged-reusable-workflow.yml@main
-          with:
-            name: "DonivAvedLura"
+
             

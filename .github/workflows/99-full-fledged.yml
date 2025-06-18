@@ -11,12 +11,12 @@ jobs:
             - name: save my_name_1 in build
               run: |
                 echo "::debug::processing value 1"
-                echo "my_name_1="Vinodh" > $GITHB_ENV
+                echo "my_name_1=Vinodh" >> $GITHB_ENV
 
             - name: save my_name_2 in build
               run: |
                 echo "::debug::processing value 2"
-                echo "my_name_2="Deva" > $GITHB_OUTPUT
+                echo "my_name_2=Deva" >> $GITHB_OUTPUT
         
             - name: print my_name_1 in build
               run: |

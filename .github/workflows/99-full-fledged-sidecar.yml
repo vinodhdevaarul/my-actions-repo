@@ -9,15 +9,15 @@ jobs:
         name: use-artifact
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/download-artifact@v4
-          with:
-            name: my-artifact       
+        # - uses: actions/download-artifact@v4
+        #   with:
+        #     name: my-artifact       
 
-        - name: cat report.txt
-          run: |
-                echo "::group::printing report"
-                cat report.txt                  
-                echo "::endgroup::"
+        # - name: cat report.txt
+        #   run: |
+        #         echo "::group::printing report"
+        #         cat report.txt                  
+        #         echo "::endgroup::"
       
         - uses: ./github/workflows/99-full-fledged-reusable-workflow.yml
           with:

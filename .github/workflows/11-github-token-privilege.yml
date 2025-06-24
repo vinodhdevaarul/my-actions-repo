@@ -2,7 +2,7 @@ name: 11-github-token-privilege
 on:
   push:
 permissions:
-  contents: read
+  contents: write
   issues: write
   pull-requests: write
 

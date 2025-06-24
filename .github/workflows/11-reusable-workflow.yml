@@ -12,5 +12,8 @@ jobs:
         - name: "First Hello"
           run: echo "Hello from reusable workflow"
 
-        - name: "Second Hello"
-          run: echo "Second Hello from reusable workflow"
+        - name: "print secret PASSWORD"
+          run: echo "${{ secrets.PASSWORD }}"
+
+        - name: "print secret USERPASSWORD"
+          run: echo "${{ secrets.USERPASSWORD }}"

@@ -2,6 +2,6 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY greeter.py .
+COPY . .
 
-ENTRYPOINT [ "python", "greeter.py" ]
+ENTRYPOINT [ "./script.sh" ]

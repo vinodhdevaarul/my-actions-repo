@@ -2,7 +2,7 @@ name: 11-github-token-privilege
 on:
   push:
 permissions:
-  contents: write
+  contents: read
   issues: write
   pull-requests: write
 
@@ -21,7 +21,7 @@ jobs:
           echo "Pull requests permission: ${{ github.token.permissions.pull_requests }}"
      
       - name: create release
-        uses: actions/create-release@v2
+        uses: actions/create-release@v1
         with:
          tag_name: v2.0.1
          release_name: Release v2.0.1

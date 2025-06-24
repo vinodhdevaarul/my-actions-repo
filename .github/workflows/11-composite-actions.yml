@@ -1,0 +1,14 @@
+name: 11-composite-actions-caller
+on: [push]
+jobs:
+    composite-actions:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+
+          - name: run hello world
+            run: echo "Hello World"
+        
+          - name: run composite action
+            uses: ./.github/actions/my-composite-action

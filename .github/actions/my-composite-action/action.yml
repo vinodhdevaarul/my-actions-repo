@@ -10,3 +10,4 @@ runs:
       run: |
         echo "Running script..."
         echo "Hello from my composite action!"
+      shell: bash  

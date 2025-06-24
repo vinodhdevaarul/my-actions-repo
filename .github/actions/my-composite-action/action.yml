@@ -1,13 +1,12 @@
 name: my composite action
 description: A composite action that runs a script and checks permissions
-jobs:
-  my-composite-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Run script
-        run: |
-          echo "Running script..."
-          echo "Hello from my composite action!"
+    - name: Run script
+      run: |
+        echo "Running script..."
+        echo "Hello from my composite action!"

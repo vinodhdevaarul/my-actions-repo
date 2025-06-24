@@ -8,6 +8,7 @@ jobs:
         uses: vinodhdevaarul/my-actions-repo/.github/workflows/99-full-fledged-reusable-workflow.yml@main
         with:
             name: "DonivAvedLura"
+    # YOU CANNOT HAVE STEPS IN THE JOB THAT INVOKES A CALLABLE/REUSABLE WORKFLOW        
     deploy-job:
       name: deploy job
       runs-on: ubuntu-latest         

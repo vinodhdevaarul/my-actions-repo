@@ -1,0 +1,15 @@
+name: 11-custom-docker-action-invoker
+description: 'A workflow to invoke a custom Docker action'
+on: [push]
+
+jobs:
+  invoke-greeter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run custom Docker action
+        uses: ./.github/actions/simple-greeter
+        with:
+          name: 'Vinodh'

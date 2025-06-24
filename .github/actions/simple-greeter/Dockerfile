@@ -10,7 +10,7 @@
 
 # ENTRYPOINT ["bash", "./script.sh"]
 
-FROM python:3.9-slim
+FROM python:latest-slim
 
 WORKDIR /app
 

@@ -16,4 +16,4 @@ WORKDIR /app
 
 COPY greeter.py .
 
-ENTRYPOINT ["python", "greet.py"]
+ENTRYPOINT ["python", "greeter.py"]

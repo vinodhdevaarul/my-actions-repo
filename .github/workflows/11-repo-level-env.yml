@@ -5,8 +5,7 @@ jobs:
     prod-deployment:
         name: Prod Deployment
         runs-on: ubuntu-latest
-        environment: 
-            name: production
+        environment: prod
         steps:
         - name: Checkout code
           uses: actions/checkout@v2     

@@ -19,3 +19,11 @@ jobs:
           echo "Contents permission: ${{ github.token.permissions.contents }}"
           echo "Issues permission: ${{ github.token.permissions.issues }}"
           echo "Pull requests permission: ${{ github.token.permissions.pull_requests }}"
+     
+      - name: create release
+        uses: actions/create-release@v1
+        with:
+         tag_name: v1.0.0
+         release_name: Release v1.0.0
+         body: |
+           This is the first release.

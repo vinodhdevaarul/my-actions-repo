@@ -5,8 +5,8 @@ on:
 jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/11-reusable-workflow.yml
-    secrets:
-      PASSWORD: ${{ secrets.PASSWORD }}
-      USERPASSWORD: ${{ secrets.USERPASSWORD }}
+    secrets: inherit
+    #   PASSWORD: ${{ secrets.PASSWORD }}
+    #   USERPASSWORD: ${{ secrets.USERPASSWORD }}
     
 

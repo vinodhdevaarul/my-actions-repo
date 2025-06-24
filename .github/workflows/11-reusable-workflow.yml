@@ -1,11 +1,11 @@
 name: 11-reusable-workflow
 on: 
     workflow_call:
-        secrets:
-            PASSWORD:
-                required: true
-            USERPASSWORD:
-                required: true
+        # secrets:
+        #     PASSWORD:
+        #         required: true
+        #     USERPASSWORD:
+        #         required: true
 jobs:
     reusable-workflow:
         name: reusable-workflow

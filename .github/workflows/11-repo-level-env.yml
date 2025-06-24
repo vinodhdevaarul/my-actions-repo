@@ -6,7 +6,8 @@ jobs:
         name: Prod Deployment
         runs-on: ubuntu-latest
         environment: 
-            name: [prod, production123]
+            name: production
+            url: https://prod.example.com
         steps:
         - name: Checkout code
           uses: actions/checkout@v2     

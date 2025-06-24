@@ -1,0 +1,16 @@
+name: 11-reusable-workflow
+on: 
+    workflow_call:
+jobs:
+    reusable-workflow:
+        name: reusable-workflow
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: "First Hello"
+          run: echo "Hello from reusable workflow"
+
+        - name: "Second Hello"
+          run: echo "Second Hello from reusable workflow"

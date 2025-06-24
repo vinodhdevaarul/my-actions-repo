@@ -1,0 +1,9 @@
+name: 11-reusable-workflow-caller
+on:
+  push:
+
+jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/11-reusable-workflow.yml
+    
+

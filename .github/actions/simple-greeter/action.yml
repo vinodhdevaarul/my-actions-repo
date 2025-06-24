@@ -1,5 +1,11 @@
 name: Simple Greeter Docker Action 
 description: 'A simple Docker action that greets the user
+inputs:
+  name:
+    description: 'Name of the person to greet'
+    required: true
+    type: string
+    default: 'World'
 runs:
   using: 'docker'
   image: 'Dockerfile'

@@ -1,0 +1,15 @@
+name: read-pr-label-content
+on:
+  pull_request:
+    types: [labeled]
+jobs:
+  read-label:   
+    name: Read PR Label Content
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read PR labels
+        run: |
+          echo "Reading PR labels..."
+          echo "Hello from the read label action!"
+          echo ${{ github.event.pull_request.labels.*.name }}
+        shell: bash

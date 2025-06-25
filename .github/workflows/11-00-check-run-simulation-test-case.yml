@@ -1,0 +1,34 @@
+name: Manual Check Run
+
+on: [push]
+
+jobs:
+  fake-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create check run
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const check = await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: "Custom Test Check",
+              head_sha: context.sha,
+              status: "in_progress"
+            });
+
+            // Simulate test results
+            await new Promise(r => setTimeout(r, 3000)); // wait 3 seconds
+
+            await github.rest.checks.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: check.data.id,
+              status: "completed",
+              conclusion: "success",  // or "failure"
+              output: {
+                title: "Tests Passed",
+                summary: "All tests ran successfully."
+              }
+            });

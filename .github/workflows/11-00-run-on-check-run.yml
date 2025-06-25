@@ -1,0 +1,12 @@
+name: Run on Check Run
+on:
+  check_run:
+jobs:
+  run-on-check-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script
+        run: |
+          echo "Running script on check run..."
+          echo "Hello from the check run action!"
+        shell: bash

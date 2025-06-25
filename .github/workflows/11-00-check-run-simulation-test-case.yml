@@ -29,6 +29,6 @@ jobs:
               conclusion: "success",  // or "failure"
               output: {
                 title: "Tests Passed",
-                summary: "All tests ran successfully."
+                summary: "All tests ran successfully...."
               }
             });

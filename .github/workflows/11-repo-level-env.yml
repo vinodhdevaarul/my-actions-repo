@@ -15,6 +15,4 @@ jobs:
         - name: Deploy to production
           run: echo "Deploying to production environment"
 
-        - name: Read from environment variable  
-          run: echo ${{ vars.PROD_HOSTNAME }}
           

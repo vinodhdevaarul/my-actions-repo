@@ -1,0 +1,14 @@
+name: triggered
+on:
+    create:
+jobs:
+    triggered:
+        name: triggered
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run script
+              run: |
+                echo "Running script..."
+                echo "Hello from my triggered action!"
+              shell: bash  
+

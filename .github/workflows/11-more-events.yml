@@ -1,6 +1,7 @@
 name: triggered
 on:
-    create:
+    #create:
+    deployment:
 jobs:
     triggered:
         name: triggered

@@ -1,7 +1,6 @@
 name: Order of Needs
 on:
-  pull_request:
-    types: [labeled]
+    push:
 jobs:
   Job1:
     name: Order of Needs

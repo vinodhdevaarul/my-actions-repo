@@ -1,0 +1,15 @@
+name: 12-max-parallel
+on:
+    push:
+jobs:
+    max-parallel:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+            max-parallel: 1
+        steps:
+            - name: Run a script
+              run: |
+                echo "Running job on ${{ matrix.os }}"
+                sleep 10

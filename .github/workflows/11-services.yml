@@ -1,0 +1,38 @@
+name: 11-services
+on: [push]
+services:
+  service1:
+    image: nginx:latest
+    ports:
+      - 8080:80
+  service2:
+    image: node:14
+    options: --entrypoint /bin/sh
+jobs:
+    Job1:
+        name: Job1
+        runs-on: ubuntu-latest
+        services:
+        service1:
+            ports:
+            - 8080:80
+        steps:
+        - name: Check service1
+            run: |
+            echo "Checking service1..."
+            curl http://localhost:8080
+            shell: bash
+    
+    Job2:
+        name: Job2
+        runs-on: ubuntu-latest
+        services:
+        service2:
+            options: --entrypoint /bin/sh
+        steps:
+        - name: Check service2
+            run: |
+            echo "Checking service2..."
+            echo "Hello from the service2 action!"
+            shell: bash
+    

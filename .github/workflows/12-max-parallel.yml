@@ -7,11 +7,10 @@ jobs:
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest, macos-latest]
-        concurrency:
-            group: ${{ github.workflow }}   
-            cancel-in-progress: true
+                version: [1,2,3]
+             max-parallel: 2
         steps:
             - name: Run a script
               run: |
-                echo "Running job on ${{ matrix.os }}"
-                sleep 10
+                echo "Running job on ${{ matrix.os }} with version ${{ matrix.version }}"
+                sleep 50

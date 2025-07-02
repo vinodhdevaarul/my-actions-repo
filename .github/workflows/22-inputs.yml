@@ -1,0 +1,46 @@
+name: 22-inputs
+on: 
+    workflow_dispatch:
+        inputs:
+            val_num:
+                description: 'Enter a number'
+                required: true
+                type: number
+                default: 100
+            val_string:
+                description: 'Enter a String'
+                required: true
+                type: string
+                default: "Hello"
+            val_choice:
+                description: 'Enter a Choice'
+                required: true
+                type: choice
+                options:
+                    - A
+                    - B
+                    - C
+            val_boolean:
+                description: 'Enter a Boolean'
+                required: true
+                type: boolean
+                default: true
+            val_environment:
+                description: 'Enter an Environment'
+                required: true
+                type: environment
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Print inputs
+              run: |
+                echo "Number: ${{ github.event.inputs.val_num }}"
+                echo "String: ${{ github.event.inputs.val_string }}"
+                echo "Choice: ${{ github.event.inputs.val_choice }}"
+                echo "Boolean: ${{ github.event.inputs.val_boolean }}"
+                echo "Environment: ${{ github.event.inputs.val_environment }}"                    

@@ -1,9 +1,9 @@
 name: 22-coe-to
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -14,8 +14,21 @@ jobs:
 
       - name: Run tests
         run: echo "Running tests..."
-        
 
       - name: sleep 600
         run: sleep 600
-        timeout-minutes: 10
+  build-02:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build project
+        run: exit 1
+        continue-on-error: true
+
+      - name: Run tests
+        run: echo "Running tests..."
+
+      - name: sleep 600
+        run: sleep 600        

@@ -6,12 +6,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
           cache: pip # or pipenv, poetry
+
       - name: find the cache dir
         run: |
-          echo "Cache dir is ${{ runner.tool_cache }}"
           pip cache dir
+    
+      - name: Cache dependencies
+        id: pip-cache   
+        uses: actions/cache@v3
+        with:
+            path: |
+                ~/.cache/pip
+                /home/runner/.cache/pip
+            key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+            restore-keys: |
+              ${{ runner.os }}-pip-

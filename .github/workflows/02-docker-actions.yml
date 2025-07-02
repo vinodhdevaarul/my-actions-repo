@@ -1,4 +1,4 @@
-name: 02-composite-actions
+name: 22-docker-action
 on: 
     #push:
     workflow_dispatch: 

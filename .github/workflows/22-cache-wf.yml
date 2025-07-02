@@ -27,3 +27,10 @@ jobs:
             key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
             restore-keys: |
               ${{ runner.os }}-pip-
+    
+      - name: Install dependencies
+        # if: steps.pip-cache.outputs.cache-hit != 'true'
+        run: |
+          echo "steps.pip-cache.outputs.cache-hit: ${{ steps.pip-cache.outputs.cache-hit}}"
+          python -m pip install -r requirements.txt
+          # or pipenv install, poetry install, etc.

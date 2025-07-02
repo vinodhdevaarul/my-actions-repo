@@ -43,4 +43,6 @@ jobs:
                 echo "String: ${{ github.event.inputs.val_string }}"
                 echo "Choice: ${{ github.event.inputs.val_choice }}"
                 echo "Boolean: ${{ github.event.inputs.val_boolean }}"
-                echo "Environment: ${{ github.event.inputs.val_environment }}"                    
+                echo "Environment: ${{ github.event.inputs.val_environment }}"      
+                echo "secrets.PROD_USER: ${{ secrets.PROD_USER }}"              
+                echo "vars.PROD_HOSTNAME: ${{vars.PROD_HOSTNAME }}"              

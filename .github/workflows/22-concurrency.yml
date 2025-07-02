@@ -1,0 +1,17 @@
+name: 22-concurrency
+on: [push]
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build project
+        run: echo "Building project..."
+
+      - name: Run tests
+        run: echo "Running tests..."

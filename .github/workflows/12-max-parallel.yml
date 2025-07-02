@@ -13,4 +13,4 @@ jobs:
             - name: Run a script
               run: |
                 echo "Running job on ${{ matrix.os }} with version ${{ matrix.version }}"
-                sleep 50
+                sleep 30

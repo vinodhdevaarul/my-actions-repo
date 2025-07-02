@@ -15,3 +15,6 @@ jobs:
 
       - name: Run tests
         run: echo "Running tests..."
+
+      - name: sleep 600
+        run: sleep 600

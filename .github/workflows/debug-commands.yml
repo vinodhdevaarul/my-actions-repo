@@ -1,5 +1,5 @@
 name: "debug commands"
-on: [push]
+on: [push, workflow_call]
 jobs:
   more_on_jobs_1:
     runs-on: ubuntu-latest

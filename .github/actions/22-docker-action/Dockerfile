@@ -2,4 +2,4 @@ FROM python:3.9-slim
 
 COPY main.py /main.py
 
-CMD ["python", "/main.py"]
+ENTRYPOINT ["python", "/main.py"]

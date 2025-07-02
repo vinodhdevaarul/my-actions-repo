@@ -1,0 +1,13 @@
+name: 22-docker-action
+description: A GitHub Action that runs a Docker container with a sleep command
+inputs:
+  greeting:
+    description: 'Greeting message to display'
+    required: true
+    type: string
+    default: 'Hello, World!'
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.greeting }}    

@@ -1,0 +1,17 @@
+name: 02-composite-actions
+on: 
+    #push:
+    workflow_dispatch: 
+
+jobs:
+    docker_action:
+        name: docker action
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Code
+          uses: actions/checkout@v3  
+
+        - name: setup-python
+          uses: ./.github/actions/docker-action
+          with:
+            greeting: "Hello from Docker Action"

@@ -1,0 +1,15 @@
+name: 22-trigger-wf-followed-by-22-composite-action
+on:
+  workflow_run:
+    workflows: ["22-calling-composite"]
+    types:
+      - completed
+jobs:
+  trigger-composite-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: triggered following 22-composite-action
+        run: |
+          echo "This workflow triggers after the 22-composite-action"

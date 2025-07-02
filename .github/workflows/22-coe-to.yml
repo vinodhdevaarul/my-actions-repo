@@ -9,10 +9,11 @@ jobs:
 
       - name: Build project
         run: exit 1
+        continue-on-error: true
 
       - name: Run tests
         run: echo "Running tests..."
-        continue-on-error: true
+        
 
       - name: sleep 600
         run: sleep 600

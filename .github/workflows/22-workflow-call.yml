@@ -2,16 +2,6 @@ name: 22-workflow-call
 on:
     push:
 jobs:
-    workflow_call_job:
-        name: Workflow Call Job
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout Code
-          uses: actions/checkout@v3
 
-        - name: Call Another Workflow
-          uses: ./.github/workflows/22-docker-actions.yml
-          with:
-            greeting: "Hello from Workflow Call Job"
     calling_workflow:
           uses: ./.github/workflows/debug-commands.yml

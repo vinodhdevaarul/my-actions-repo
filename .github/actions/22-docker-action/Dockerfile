@@ -1,5 +1,5 @@
 FROM python:3.9-slim
 
-COPY . .
+COPY . /
 
-CMD ["python", "main.py"]
+CMD ["python", "/main.py"]

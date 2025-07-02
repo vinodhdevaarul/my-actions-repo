@@ -1,0 +1,17 @@
+name: 22-cache-wf
+on: [push]
+jobs:
+  cache_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+          cache: pip # or pipenv, poetry
+      - name: find the cache dir
+        run: |
+          echo "Cache dir is ${{ runner.tool_cache }}"
+          pip cache dir

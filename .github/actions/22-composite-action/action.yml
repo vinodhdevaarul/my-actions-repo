@@ -1,0 +1,28 @@
+name: 22-composite-action
+description: A composite action that runs a script with a sleep command
+inputs:
+  numpy:
+    description: 'Input for the composite action'
+    required: true
+    type: boolean
+    default: false
+  others:
+    description: 'Input for the composite action'
+    required: true
+    type: string
+    default: pandas,scipy
+runs:
+  using: "composite"
+  steps:
+    - name: Run a script
+      run: |
+        echo "Running composite action with numpy=${{ inputs.numpy }} and others=${{ inputs.others }}"
+        sleep 10
+      shell: bash
+      
+    - name: Check inputs
+      run: |
+        echo "Inputs received:"
+        echo "numpy: ${{ inputs.numpy }}"
+        echo "others: ${{ inputs.others }}"
+      shell: bash

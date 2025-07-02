@@ -1,0 +1,15 @@
+name: 22-calling-composite
+on:
+  push:
+jobs:
+  call-composite-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Call composite action
+        uses: ./.github/actions/22-composite-action
+        with:
+          numpy: true
+          others: pandas,scipy,openai

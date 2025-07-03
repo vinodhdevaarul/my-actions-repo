@@ -33,11 +33,12 @@ jobs:
             echo "3=${{ steps.step-0.outputs.OUTPUT_VAR_1 }}"
             echo "4=${{ steps.step-0.outputs.ENV_VAR_1 }}"
             echo "5=${{ env.ENV_VAR_1 }}"
+            sleep 20
   debug_commands_2:
     runs-on: ubuntu-latest
     steps:
       - name: Run debug commands
         run: |
-            sleep 20
+            sleep 15
             echo "1=${ENV_VAR_1}"        
             echo "3=${{ steps.step-0.outputs.OUTPUT_VAR_1 }}"   

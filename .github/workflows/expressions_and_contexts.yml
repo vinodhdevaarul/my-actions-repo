@@ -44,4 +44,12 @@ jobs:
       run: |
         echo "This is the main branch"
 
+    - name: Run Tests
+      id: run-tests
+      run: exit 1
+
+    - name: Upload Failure test report
+      if: failure() && steps.run-tests.outcome == 'failure'
+      run: echo "This step runs only if the previous step failed"
+
   

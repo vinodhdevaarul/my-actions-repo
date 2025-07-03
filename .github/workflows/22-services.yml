@@ -1,5 +1,14 @@
 name: 22-services
 on: [push]
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+  issues: write
+  actions: write
+  checks: write
+  deployments: write
+  statuses: write
 jobs:
     Job1:
         name: Job1

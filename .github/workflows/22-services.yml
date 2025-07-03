@@ -1,0 +1,21 @@
+name: 22-services
+on: [push]
+jobs:
+    Job1:
+        name: Job1
+        runs-on: ubuntu-latest
+        services:
+            frontend-nginx:
+                image: nginx:latest
+                ports:
+                    - 8080:80
+            backend-nginx:
+                image: nginx:latest
+                ports:
+                    - 8081:80
+        steps:
+            - name: Check frontend service
+              run: |
+                echo "Checking frontend service..."
+                curl http://localhost:8080
+              shell: bash                    

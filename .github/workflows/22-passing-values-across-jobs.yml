@@ -1,8 +1,14 @@
 name: 22-passing-values-across-jobs
 on: [push]
+defaults:
+    run:
+        shell: bash
 jobs:
     job1:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash
         outputs:
             os: ${{ steps.step-0.outputs.os}}
             image: ${{ steps.step-1.outputs.image}}
@@ -23,3 +29,4 @@ jobs:
               
             - name: get image
               run: echo "${{ needs.job1.outputs.image }}"
+              shell: bash

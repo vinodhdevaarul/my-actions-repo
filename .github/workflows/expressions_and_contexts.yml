@@ -46,7 +46,7 @@ jobs:
 
     - name: Run Tests
       id: run-tests
-      run: exit 1
+      run: exit 0
 
     - name: Upload Failure test report
       if: failure() && steps.run-tests.outcome == 'failure'

@@ -33,3 +33,15 @@ jobs:
     - name: echo secrets contexts
       run: |
         echo '${{ toJson(secrets) }}'                        
+
+    - name: if 1
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "This is the main branch"
+
+    - name: if 2
+      if: ${{ github.ref == 'refs/heads/main' }}
+      run: |
+        echo "This is the main branch"
+
+  

@@ -46,13 +46,18 @@ jobs:
 
     - name: Run Tests
       id: run-tests
-      run: exit 0
+      run: exit 1
+      continue-on-error: true
 
-    - name: Upload Failure test report
+    - name: Upload Failure test report 1
       if: failure() && steps.run-tests.outcome == 'failure'
-      run: echo "This step runs only if the previous step failed"
+      run: echo "This step runs only if the previous step failed 1 "
 
-    - name: Upload Failure test report
+    - name: Upload Failure test report 2
       if: always() && steps.run-tests.outcome == 'failure'
-      run: echo "This step runs only if the previous step failed"      
+      run: echo "This step runs only if the previous step failed 2"      
+
+    - name: Upload Failure test report 2
+      if: steps.run-tests.outcome == 'failure'
+      run: echo "This step runs only if the previous step failed 3"          
   

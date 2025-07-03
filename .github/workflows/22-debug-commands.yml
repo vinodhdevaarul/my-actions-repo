@@ -22,7 +22,7 @@ jobs:
             # echo "::set-env name=DEBUG_ENV::This is a debug environment variable"
             # echo "Debug environment variable: $DEBUG_ENV"
             echo "ENV_VAR_1=Value1" >> $GITHUB_ENV
-            echo "OUTPUT_VAR_1=Value1" >> $GITHUB_OUTPUT
+            echo "OUTPUT_VAR_1=Value2" >> $GITHUB_OUTPUT
 
       - name: Check debug messages
         run: |
@@ -32,4 +32,4 @@ jobs:
             echo "2=${OUTPUT_VAR_1}"
             echo "3=${{ steps.step-0.outputs.OUTPUT_VAR_1 }}"
             echo "4=${{ steps.step-0.outputs.ENV_VAR_1 }}"
-            
+            echo "5=${{ env.ENV_VAR_1 }}"

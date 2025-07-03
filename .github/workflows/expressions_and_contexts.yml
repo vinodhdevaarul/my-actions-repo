@@ -52,4 +52,7 @@ jobs:
       if: failure() && steps.run-tests.outcome == 'failure'
       run: echo "This step runs only if the previous step failed"
 
+    - name: Upload Failure test report
+      if: always() && steps.run-tests.outcome == 'failure'
+      run: echo "This step runs only if the previous step failed"      
   

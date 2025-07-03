@@ -8,6 +8,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run debug commands
+        id: step-0
         run: |
             echo "::debug::This is a debug message"
             echo "::warning::This is a warning message"
@@ -18,12 +19,17 @@ jobs:
             echo "::endgroup::"
             echo "::set-output name=debug_output::This is a debug output"
             echo "Debug output: ${{ steps.debug_commands.outputs.debug_output }}"
-            echo "::set-env name=DEBUG_ENV::This is a debug environment variable"
-            echo "Debug environment variable: $DEBUG_ENV"
+            # echo "::set-env name=DEBUG_ENV::This is a debug environment variable"
+            # echo "Debug environment variable: $DEBUG_ENV"
+            echo "ENV_VAR_1=Value1" >> $GITHUB_ENV
+            echo "OUTPUT_VAR_1=Value1" >> $GITHUB_OUTPUT
 
       - name: Check debug messages
         run: |
             echo "Debug output: ${{ steps.debug_commands.outputs.debug_output }}"
             echo "Debug environment variable: $DEBUG_ENV"
-        shell: bash            
-  
+            echo "1=${ENV_VAR_1}"
+            echo "2=${OUTPUT_VAR_1}"
+            echo "3=${{ steps.step-0.outputs.OUTPUT_VAR_1 }}"
+            echo "4=${{ steps.step-0.outputs.ENV_VAR_1 }}"
+            
